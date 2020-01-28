@@ -8,8 +8,8 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function baja($id){
-			$this-> sentencia = "DELETE FROM usuario WHERE IDusuario = $id";
+		public function baja($IDusuario){
+			$this-> sentencia = "DELETE FROM usuario WHERE IDusuario = $IDusuario";
 			$this-> ejecutarSentencia();
 		}
 
