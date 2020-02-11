@@ -9,22 +9,22 @@
 		public $conexion;
 
 		private function abrir_conexion(){
-			$this-> conexion = new mysqli($this-> host, $this-> usuario, $this-> password, $this-> base);
+			$this-> conexion = new mysqli($this->host, $this->usuario, $this->password, $this->base);
 		}
 
 		private function cerrarConexion(){
-			$this-> conexion-> close();
+			$this-> conexion->close();
 		}
 
 		public function ejecutarSentencia(){
 			$this-> abrir_conexion();
-			$this-> conexion-> query($this-> sentencia);
+			$this-> conexion-> query($this->sentencia);
 			$this-> cerrarConexion();
 		}
 
 		public function obtenerSentencia(){
-			$this-> abrirConexion();
-			$resultado = $this-> conexion-> query($this-> sentencia);
+			$this-> abrir_conexion();
+			$resultado = $this->conexion->query($this->sentencia);
 			return $resultado;
 		}
 	}

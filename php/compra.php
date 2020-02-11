@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Compra extends Conexion{
 
 		public function alta($fecha,$total,$tipo_pago, $id_cliente){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM compra";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($fecha,$total,$tipo_pago, $id_cliente,$id){
+			$this-> sentencia = "UPDATE FROM compra SET fecha='$fecha',total='$total',tipo_pago='$tipo_pago',id_cliente='$id_cliente' WHERE IDcompra='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

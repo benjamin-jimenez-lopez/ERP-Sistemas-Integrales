@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
-			$this-> sentencia = "SELECT * FROM usuario";
+		public function consulta(){
+			$this-> sentencia = "SELECT * FROM actividad";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($registro,$IDusuario,$movimiento_act, $movimiento_tabla, $id){
+			$this-> sentencia = "UPDATE FROM actividad SET registro='$registro',IDusuario='$IDusuario',movimiento_act='$movimiento_act',movimiento_tabla='$movimiento_tabla' WHERE IDactividad='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

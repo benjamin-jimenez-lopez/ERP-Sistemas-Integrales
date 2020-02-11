@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Balance extends Conexion{
 
 		public function alta($fechainicio,$fechafin,$total){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM balance";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($fechainicio,$fechafin,$total,$id){
+			$this-> sentencia = "UPDATE FROM balance SET fechainicio='$fechainicio',fechafin='$fechafin',total='$total' WHERE IDbalance='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

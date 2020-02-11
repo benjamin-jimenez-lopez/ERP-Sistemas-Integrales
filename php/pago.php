@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Pago extends Conexion{
 
 		public function alta($IDempleado,$sal,$fecha_dep,$met_pag,$des){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM pago";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($IDempleado,$sal,$fecha_dep,$met_pag,$des,$id){
+			$this-> sentencia = "UPDATE FROM pago SET IDempleado='$IDempleado',sal='$sal',fecha_dep='$fecha_dep',met_pag='$met_pag',des='$des' WHERE IDpago='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

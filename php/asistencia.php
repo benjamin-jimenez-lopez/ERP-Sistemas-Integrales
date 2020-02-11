@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Asistencia extends Conexion{
 
 		public function alta($Fecha,$IDempleado,$Hora){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM asistencia";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($Fecha,$IDempleado,$Hora,$id){
+			$this-> sentencia = "UPDATE FROM asistencia SET Fecha='$Fecha',IDempleado='$IDempleado',Hora='$Hora' WHERE IDasistencia='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

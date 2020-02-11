@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Detalle_compra extends Conexion{
 
 		public function alta($IDmateriaprima,$IDcompra,$cantidad){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM detalle_compra";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($IDmateriaprima,$IDcompra,$cantidad,$id){
+			$this-> sentencia = "UPDATE FROM detalle_compra SET IDmateriaprima='$IDmateriaprima',IDcompra='$IDcompra',cantidad='$cantidad' WHERE IDdetallecompra='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

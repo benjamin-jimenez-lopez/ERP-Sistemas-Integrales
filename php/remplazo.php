@@ -1,6 +1,6 @@
 <?php 
 	
-	requiere_once("conexion.php");
+	require_once("conexion.php");
 	class Remplazo extends Conexion{
 
 		public function alta($IDmobiliario,$fecha,$costo,$descripcion){
@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM remplazo";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($IDmobiliario,$fecha,$costo,$descripcion,$id){
+			$this-> sentencia = "UPDATE FROM remplazo SET IDmobiliario='$IDmobiliario',fecha='$fecha',costo='$costo',descripcion='$descripcion' WHERE IDremplazo='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>

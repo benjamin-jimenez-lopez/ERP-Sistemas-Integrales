@@ -13,8 +13,13 @@
 			$this-> ejecutarSentencia();
 		}
 
-		public function consulta()
+		public function consulta(){
 			$this-> sentencia = "SELECT * FROM devoluciones";
 			return $this-> obtenerSentencia();
+		}
+		public function modificar($fecha,$cantidad,$descripcion, $IDproducto,$id){
+			$this-> sentencia = "UPDATE FROM devoluciones SET fecha='$fecha',cantidad='$cantidad',descripcion='$descripcion',IDproducto='$IDproducto' WHERE IDdevoluciones='$id'";
+			$this-> ejecutarSentencia();
+		}
 	}
  ?>
