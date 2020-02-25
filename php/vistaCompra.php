@@ -1,3 +1,8 @@
+<?php 
+	require_once("compra.php");
+	$obj = new Compra();
+	if (!isset($_POST["modificar"])) { 
+	?>
 <form action="" method="post">
 	<input type="text" name="fecha" placeholder="Fecha (Y-m-d)">
 	<br>
