@@ -18,8 +18,12 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($IDmateriaprima,$IDcompra,$cantidad,$id){
-			$this-> sentencia = "UPDATE FROM detalle_compra SET IDmateriaprima='$IDmateriaprima',IDcompra='$IDcompra',cantidad='$cantidad' WHERE IDdetallecompra='$id'";
+			$this-> sentencia = "UPDATE detalle_compra SET IDmateriaprima='$IDmateriaprima',IDcompra='$IDcompra',cantidad='$cantidad' WHERE IDdetallecompra='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this-> sentencia = "SELECT * FROM detalle_compra WHERE IDdetallecompra=$id";
+			return $this->obtenerSentencia();
+		}
 	}
- ?>
+ ?> 

@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM pago SET IDempleado='$IDempleado',sal='$sal',fecha_dep='$fecha_dep',met_pag='$met_pag',des='$des' WHERE IDpago='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM pago WHERE IDpago=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

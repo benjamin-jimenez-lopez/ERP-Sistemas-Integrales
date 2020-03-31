@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM materiaprima SET Nombre='$Nombre',Tipo='$Tipo',Descripcion='$Descripcion',Precio='$Precio',Stock='$Stock',Existencias='$Existencias' WHERE ID_materia='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM materiaprima WHERE ID_materia=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

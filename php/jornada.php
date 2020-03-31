@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM jornada SET hrs_trabajadas='$hrs_trabajadas',dias_trabajados='$dias_trabajados',pago_hora='$pago_hora',horas_extra='$horas_extra',bonos='$bonos' WHERE IDjornada='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM jornada WHERE IDjornada=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

@@ -18,8 +18,30 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($nombre,$descripcion,$preciov,$precioc,$cantidad,$cantmin,$cantmax,$categoria,$id){
-			$this-> sentencia = "UPDATE FROM producto SET nombre='$nombre',descripcion='$descripcion',preciov='$preciov',precioc='$precioc',cantidad='$cantidad',cantmin='$cantmin',cantmax='$cantmax',categoria='$categoria' WHERE IDproducto='$id'";
+			$this-> sentencia = "UPDATE producto SET nombre='$nombre',descripcion='$descripcion',preciov='$preciov',precioc='$precioc',cantidad='$cantidad',cantmin='$cantmin',cantmax='$cantmax',categoria='$categoria' WHERE IDproducto='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM producto WHERE IDproducto=$id";
+			return $this->obtenerSentencia();
+		}
+		public function nombres($nombre, $campo){
+			$this->sentencia = "SELECT $campo FROM $nombre";
+			$res = $this->obtenerSentencia();
+			$nombres = "";
+			while ($fila = $res->fetch_assoc()) {
+				$nombres = $nombres."'".$fila[$campo]."',";
+			}
+			return $nombres;
+		}
+		public function cantidades($nombre,$campo){
+			$this->sentencia = "SELECT $campo FROM $nombre";
+			$res = $this->obtenerSentencia();
+			$nombres = "";
+			while($fila = $res->fetch_assoc()){
+			$nombres = $nombres."".$fila[$campo].",";
+			}
+			return $nombres;
+	}
 	}
  ?>

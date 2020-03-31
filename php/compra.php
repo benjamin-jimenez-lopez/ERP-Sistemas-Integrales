@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM compra SET fecha='$fecha',total='$total',tipo_pago='$tipo_pago',id_cliente='$id_cliente' WHERE IDcompra='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM compra WHERE IDcompra=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

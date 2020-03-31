@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM mantenimiento SET fecha_man='$fecha_man',area='$area',IDmob='$IDmob',costo_man='$costo_man',IDempleado='$IDempleado' WHERE IDmantenimiento='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM mantenimiento WHERE IDmantenimiento=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM asistencia SET Fecha='$Fecha',IDempleado='$IDempleado',Hora='$Hora' WHERE IDasistencia='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM asistencia WHERE IDasistencia=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

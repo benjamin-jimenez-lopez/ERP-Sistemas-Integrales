@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM actividad SET registro='$registro',IDusuario='$IDusuario',movimiento_act='$movimiento_act',movimiento_tabla='$movimiento_tabla' WHERE IDactividad='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM actividad WHERE IDactividad=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM remplazo SET IDmobiliario='$IDmobiliario',fecha='$fecha',costo='$costo',descripcion='$descripcion' WHERE IDremplazo='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM remplazo WHERE IDremplazo=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

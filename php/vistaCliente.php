@@ -4,7 +4,12 @@
 	if (!isset($_POST["modificar"])) { 
 	?>
 <form action="" method="post">
+	<h2>Clientes</h2>
 	<input type="text" name="nombre" placeholder="Nombre">
+	<br>
+	<input type="text" name="apematerno" placeholder="Apellido Materno">
+	<br>
+	<input type="text" name="apepaterno" placeholder="Apellido Paterno">
 	<br>
 	<input type="text" name="direccion" placeholder="Direccion">
 	<br>
@@ -12,13 +17,9 @@
 	<br>
 	<input type="text" name="correo" placeholder="Correo">
 	<br>
-	<input type="text" name="apematerno" placeholder="Apellido Materno">
-	<br>
-	<input type="text" name="apepaterno" placeholder="Apellido Paterno">
-	<br>
 	<input type="text" name="sexo" placeholder="Sexo">
 	<br>
-	<input type="text" name="fenacimiento" placeholder="Fecha de Nacimiento">
+	<input type="date" name="fenacimiento" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
 	<br>
 	<br>
 	<input type="submit" name="alta" value="Guardar Cliente">
@@ -30,24 +31,22 @@
 	$fila = $res->fetch_assoc();
 	?>
 	<form action="" method="post">
-	<input type="text" name="nombre" placeholder="Nombre">
+	<input type="text" name="nombre" placeholder="Nombre" value="<?php echo $fila['nombre']; ?>">
 	<br>
-	<input type="text" name="direccion" placeholder="Direccion">
+	<input type="text" name="apematerno" placeholder="Apellido Materno" value="<?php echo $fila['apematerno']; ?>">
 	<br>
-	<input type="text" name="telefono" placeholder="Telefono">
+	<input type="text" name="apepaterno" placeholder="Apellido Paterno" value="<?php echo $fila['apepaterno']; ?>">
 	<br>
-	<input type="text" name="correo" placeholder="Correo">
+	<input type="text" name="direccion" placeholder="Direccion" value="<?php echo $fila['direccion']; ?>">
 	<br>
-	<input type="text" name="apematerno" placeholder="Apellido Materno">
+	<input type="text" name="telefono" placeholder="Telefono" value="<?php echo $fila['telefono']; ?>">
 	<br>
-	<input type="text" name="apepaterno" placeholder="Apellido Paterno">
+	<input type="text" name="correo" placeholder="Correo" value="<?php echo $fila['correo']; ?>">
 	<br>
-	<input type="text" name="sexo" placeholder="Sexo">
+	<input type="text" name="sexo" placeholder="Sexo" value="<?php echo $fila['sexo']; ?>">
 	<br>
-	<input type="text" name="fenacimiento" placeholder="Fecha de Nacimiento">
+	<input type="text" name="fenacimiento" placeholder="Fecha de Nacimiento" value="<?php echo $fila['fenacimiento']; ?>">
 	<br>
-	<br>
-	<input type="submit" name="alta" value="Guardar Cliente">
 	<br>
 	<input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
 	<input type="submit" name="mod" value="Modificar Cliente">
@@ -67,8 +66,8 @@
 			$fenacimiento = $_POST["fenacimiento"];
 			$obj-> alta($nombre,$direccion,$telefono,$correo,$apematerno,$apepaterno,$sexo,$fenacimiento);
 			echo "<script> 
-				alert('Cliente Modificado');
-				window.location.href = 'index.php';
+				alert('Cliente Guardado');
+				window.location.href = 'home.php?sec=cli';
 				</script>";
 		}
 		if(isset($_POST["mod"])){
@@ -84,22 +83,22 @@
 		$obj-> modificar($nombre,$direccion,$telefono,$correo,$apematerno,$apepaterno,$sexo,$fenacimiento,$id);
 		echo "<script> 
 				alert('Cliente Modificado');
-				window.location.href = 'index.php';
+				window.location.href = 'home.php?sec=cli';
 				</script>";
 	}
 	if (isset($_POST["eliminar"])) {
 		echo "<script> 
 			var opcion = confirm('¿Deseas eliminar el Cliente?');
 			if(opcion===true){
-				window.location.href = 'index.php?el=".$_POST["id"]."';
+				window.location.href = 'home.php?sec=cli&el=".$_POST["id"]."';
 			}
 		</script>";
 	}
 	if (isset($_GET["el"])) {
 		$obj-> baja($_GET["el"]);
 		echo "<script>
-		alert('Usuario cliente');
-		window.location.href = 'index.php';
+		alert('Cliente Eliminado');
+		window.location.href = 'home.php?sec=cli';
 		</script>";
 	}
 
@@ -123,7 +122,7 @@
 		while ($fila = $res-> fetch_assoc()) {
 			echo "<tr>";
 			echo "<td>".$fila["nombre"]."</td>";
-			echo "<td>".$fila["direccion"]"</td>";
+			echo "<td>".$fila["direccion"]."</td>";
 			echo "<td>".$fila["telefono"]."</td>";
 			echo "<td>".$fila["correo"]."</td>";
 			echo "<td>".$fila["apematerno"]."</td>";
@@ -148,4 +147,3 @@
 		}
 	 ?>
 </table>
- ?>

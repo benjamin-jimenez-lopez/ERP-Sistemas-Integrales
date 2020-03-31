@@ -1,14 +1,17 @@
-<?php 
+	<?php
 	require_once("balance.php");
 	$obj = new Balance();
 	if (!isset($_POST["modificar"])) { 
 	?>
 <form action="" method="post">
-	<input type="datetime" name="fechainicio" placeholder="Fecha de Inicio">
+	<h2>Balance</h2>
+	<input type="date" name="fechainicio" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
 	<br>
-	<input type="datetime" name="fechafin" placeholder="Fecha de Fin">
 	<br>
-	<input type="datetime" name="total" placeholder="Total">
+	<input type="date" name="fechafin" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+	<br>
+	<br>
+	<input type="text" name="total" placeholder="Total">
 	<br>
 	<br>
 	<input type="submit" name="alta" value="Guardar Balance">
@@ -20,11 +23,11 @@
 	$fila = $res->fetch_assoc();
 	?>
 	<form action="" method="post">
-	<input type="datetime" name="fechainicio" placeholder="Fecha de inicio:" value="<?php echo $fila['fechainicio']; ?>">
+	<input type="date" name="fechainicio" placeholder="Fecha de inicio:" value="<?php echo $fila['fechainicio']; ?>">
 	<br>
-	<input type="datetime" name="fechafin" placeholder="Fecha de fin:" value="<?php echo $fila['fechafin']; ?>"> 
+	<input type="date" name="fechafin" placeholder="Fecha de fin:" value="<?php echo $fila['fechafin']; ?>"> 
 	<br>
-	<input type="datetime" name="total" value="<?php echo $fila['total']; ?>">
+	<input type="text" name="total" value="<?php echo $fila['total']; ?>">
 	<br>
 	<input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
 	<input type="submit" name="mod" value="Modificar Balance">
@@ -40,8 +43,8 @@
 		$total = $_POST["total"];
 		$obj-> alta($fechainicio,$fechafin,$total);
 		echo "<script>
-			alert('Balance eliminando');
-			window.location.href = 'index.php';
+			alert('Balance Guardado');
+			window.location.href = 'home.php?sec=bal';
 			</script>";
 	}
 	if(isset($_POST["mod"])){
@@ -52,22 +55,22 @@
 		$obj-> modificar($fechainicio,$fechafin,$total,$id);
 		echo "<script> 
 				alert('Balance Modificado');
-				window.location.href = 'index.php';
+				window.location.href = 'home.php?sec=bal';
 				</script>";
 		}
 	if (isset($_POST["eliminar"])) {
 			echo "<script> 
 				var opcion = confirm('¿Deseas eliminar el balance?');
 				if(opcion===true){
-					window.location.href = 'index.php?el=".$_POST["id"]."';
+					window.location.href = 'home.php?sec=bal&el=".$_POST["id"]."';
 				}
 			</script>";
 		}
 		if (isset($_GET["el"])) {
 			$obj-> baja($_GET["el"]);
 			echo "<script>
-			alert('Balance eliminanda');
-			window.location.href = 'index.php';
+			alert('Balance eliminando');
+			window.location.href = 'home.php?sec=bal';
 			</script>";
 		}
  ?>

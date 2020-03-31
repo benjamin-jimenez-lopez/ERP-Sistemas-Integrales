@@ -1,14 +1,18 @@
 <?php 
 	require_once("asistencia.php");
 	$obj = new Asistencia();
-	if (!isset($_POST["modificar"])) { 
+	if (!isset($_POST["modificar"])) {  
 	?>
 <form action="" method="post">
-	<input type="date" name="Fecha" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2 }"> 
+	<h2>Asistencia</h2>
+	<input type="date" name="Fecha" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"> 
+	<br>
 	<br>
 	<input type="text" name="IDempleado" placeholder="IDempleado">
 	<br>
+	<br>
 	<input type="time" name="Hora">
+	<br>
 	<br>
 	<input type="submit" name="alta" value="Guardar Usuario">
 </form>
@@ -39,7 +43,7 @@
 			$obj-> alta($Fecha,$IDempleado,$Hora);
 			echo "<script>
 					alert('Asistencia Agregada');
-				window.location.href = 'index.php';
+				window.location.href = 'home.php?sec=asis';
 				</script>";
 		}
 		if(isset($_POST["mod"])){
@@ -50,14 +54,14 @@
 		$obj-> modificar($Fecha,$IDempleado,$Hora,$id);
 		echo "<script> 
 				alert('Asistencia Modificado');
-				window.location.href = 'index.php';
+				window.location.href = 'home.php?sec=asis';
 				</script>";
 		}
 		if (isset($_POST["eliminar"])) {
 			echo "<script> 
 				var opcion = confirm('¿Deseas eliminar la asistencia?');
 				if(opcion===true){
-					window.location.href = 'index.php?el=".$_POST["id"]."';
+					window.location.href = 'home.php?sec=asis&el=".$_POST["id"]."';
 				}
 			</script>";
 		}
@@ -65,7 +69,7 @@
 			$obj-> baja($_GET["el"]);
 			echo "<script>
 			alert('Asistencia eliminanda');
-			window.location.href = 'index.php';
+			window.location.href = 'home.php?sec=asis';
 			</script>";
 		}
  ?>

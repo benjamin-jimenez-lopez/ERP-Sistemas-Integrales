@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM proyecto SET nombre_pro='$nombre_pro',tipo_pro='$tipo_pro',IDempleado='$IDempleado',fecha_in='$fecha_in',fecha_fin='$fecha_fin',descripcion='$descripcion' WHERE IDproyecto='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM proyecto WHERE IDproyecto=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

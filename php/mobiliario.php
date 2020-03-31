@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM mobiliario SET nombre='$nombre',descripcion='$descripcion',cantidad='$cantidad',nic='$nic',tipo='$tipo' WHERE IDmobiliario='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM mobiliario WHERE IDmobiliario=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

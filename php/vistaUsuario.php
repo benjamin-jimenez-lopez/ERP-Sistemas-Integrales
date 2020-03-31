@@ -4,6 +4,7 @@
 	if (!isset($_POST["modificar"])) { 
 	?>
 <form action="" method="post">
+	<h2>Usuarios</h2>
 	<input type="text" name="nombre" placeholder="Name:">
 	<br>
 	<input type="password" name="password" placeholder="Password"> <br>
@@ -33,7 +34,7 @@
 	<input type="hidden" value='<?php echo $_POST["id"] ?>' name="id">
 	<input type="submit" name="mod" value="Modificar Usuario">
 
-</form>
+</form> 
 
 <?php
 		}
@@ -46,7 +47,7 @@
 		$obj-> alta($nombre,$tipo,$password);
 		echo "<script> 
 				alert('Usuario Registrado');
-				window.location.href = 'index.php';
+				window.location.href = 'home.php?sec=usu';
 				</script>";
 	}
 	if(isset($_POST["mod"])){
@@ -57,7 +58,7 @@
 		$obj-> modificar($nombre,$tipo,$password,$id);
 		echo "<script> 
 				alert('Usuario Modificado');
-				window.location.href = 'home.php';
+				window.location.href = 'home.php?sec=usu';
 				</script>";
 	}
 	if (isset($_POST["eliminar"])) {

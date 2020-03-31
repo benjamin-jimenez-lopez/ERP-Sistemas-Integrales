@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM proveedor SET nombre='$nombre',telefono='$telefono',direccion='$direccion',correo='$correo',rfc='$rfc' WHERE IDproveedor='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM proveedor WHERE IDproveedor=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM permisos SET IDusuario='$IDusuario',actpermiso='$actpermiso',actconsulta='$actconsulta',asispermiso='$asispermiso',asisconsulta='$asisconsulta',balpermiso='$balpermiso',balconsulta='$balconsulta',clipermiso='$clipermiso',cliconsulta='$cliconsulta',compermiso='$compermiso',comconsulta='$comconsulta',dcompermiso='$dcompermiso',dcomconsulta='$dcomconsulta',devpermiso='$devpermiso',devconsulta='$devconsulta',emppermiso='$emppermiso',empconsulta='$empconsulta',evapermiso='$evapermiso',evaconsulta='$evaconsulta',jorpermiso='$jorpermiso',jorconsulta='$jorconsulta',manpermiso='$manpermiso',manconsulta='$manconsulta',matpermiso='$matpermiso',matconsulta='$matconsulta',mobpermiso='$mobpermiso',mobconsulta='$mobconsulta',pagopermiso='$pagopermiso',pagoconsulta='$pagoconsulta',pedidopermiso='$pedidopermiso',pedidoconsulta='$pedidoconsulta',produpermiso='$produpermiso',produconsulta='$produconsulta',provepermiso='$provepermiso',proveconsulta='$proveconsulta',proyepermiso='$proyepermiso',proyeconsulta='$proyeconsulta',rempermiso='$rempermiso',remconsulta='$remconsulta',usuariopermiso='$usuariopermiso',usuarioconsulta='$usuarioconsulta',ventapermiso='$ventapermiso',ventaconsulta='$ventaconsulta' WHERE IDpermiso='$id'";
 			$this-> ejecutarSentencia();
 		}
+		public function buscar($id){
+			$this->sentencia = "SELECT * FROM permisos WHERE IDpermiso=$id";
+			return $this->obtenerSentencia();
+		}
 	}
  ?>

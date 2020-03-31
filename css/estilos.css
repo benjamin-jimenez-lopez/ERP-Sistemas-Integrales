@@ -24,7 +24,7 @@ form{
 	text-align: center;
 	width: 60%;
 }
-input[type="text"],input[type="password"],select{
+input[type="text"],input[type="password"],input[type="date"],select{
 	background-color: rgb(36,50,61);
 	border: 1px solid rgb(26,177,136);
 	border-radius: 10px;
@@ -81,4 +81,19 @@ li:hover{
 	color: white;
 	font-size: 1.2em;
 	transition: 2s;
+}
+#grafica{
+	padding: 0;
+	width: 100%;
+}
+#grafica form{
+	padding: 0;
+	text-align: right;
+}
+#grafica form input[type="submit"]{
+	background-color: steelblue;
+}
+#myChart{
+	margin: 0 auto;
+	max-width: 70%;
 }

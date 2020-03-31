@@ -21,5 +21,9 @@
 			$this-> sentencia = "UPDATE FROM pedido SET IDpedido='$IDpedido',fecha='$fecha',IDcliente='$IDcliente',precio='$precio',cantidad='$cantidad',direccion='$direccion',IDproducto='$IDproducto' WHERE IDpedido='$id'";
 			$this-> ejecutarSentencia();
 			}
+			public function buscar($id){
+			$this->sentencia = "SELECT * FROM pedido WHERE IDpedido=$id";
+			return $this->obtenerSentencia();
+		}
 		}
 	 ?>
