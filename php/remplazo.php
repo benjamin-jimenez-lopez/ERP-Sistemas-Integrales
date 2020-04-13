@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($IDmobiliario,$fecha,$costo,$descripcion,$id){
-			$this-> sentencia = "UPDATE FROM remplazo SET IDmobiliario='$IDmobiliario',fecha='$fecha',costo='$costo',descripcion='$descripcion' WHERE IDremplazo='$id'";
+			$this-> sentencia = "UPDATE remplazo SET IDmobiliario='$IDmobiliario',fecha='$fecha',costo='$costo',descripcion='$descripcion' WHERE IDremplazo='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

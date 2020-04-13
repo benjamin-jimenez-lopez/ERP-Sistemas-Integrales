@@ -18,7 +18,7 @@
 				return $this-> obtenerSentencia();
 			}
 			public function modificar($IDpedido,$fecha,$IDcliente,$precio,$cantidad,$direccion,$IDproducto,$id){
-			$this-> sentencia = "UPDATE FROM pedido SET IDpedido='$IDpedido',fecha='$fecha',IDcliente='$IDcliente',precio='$precio',cantidad='$cantidad',direccion='$direccion',IDproducto='$IDproducto' WHERE IDpedido='$id'";
+			$this-> sentencia = "UPDATE pedido SET IDpedido='$IDpedido',fecha='$fecha',IDcliente='$IDcliente',precio='$precio',cantidad='$cantidad',direccion='$direccion',IDproducto='$IDproducto' WHERE IDpedido='$id'";
 			$this-> ejecutarSentencia();
 			}
 			public function buscar($id){

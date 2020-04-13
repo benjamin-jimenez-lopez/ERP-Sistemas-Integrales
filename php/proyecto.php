@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($nombre_pro,$tipo_pro,$IDempleado,$fecha_in,$fecha_fin,$descripcion,$id){
-			$this-> sentencia = "UPDATE FROM proyecto SET nombre_pro='$nombre_pro',tipo_pro='$tipo_pro',IDempleado='$IDempleado',fecha_in='$fecha_in',fecha_fin='$fecha_fin',descripcion='$descripcion' WHERE IDproyecto='$id'";
+			$this-> sentencia = "UPDATE proyecto SET nombre_pro='$nombre_pro',tipo_pro='$tipo_pro',IDempleado='$IDempleado',fecha_in='$fecha_in',fecha_fin='$fecha_fin',descripcion='$descripcion' WHERE IDproyecto='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

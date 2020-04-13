@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($Fecha,$IDempleado,$Hora,$id){
-			$this-> sentencia = "UPDATE FROM asistencia SET Fecha='$Fecha',IDempleado='$IDempleado',Hora='$Hora' WHERE IDasistencia='$id'";
+			$this-> sentencia = "UPDATE asistencia SET Fecha='$Fecha',IDempleado='$IDempleado',Hora='$Hora' WHERE IDasistencia='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

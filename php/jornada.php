@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($hrs_trabajadas,$dias_trabajados,$pago_hora, $horas_extra, $bonos,$id){
-			$this-> sentencia = "UPDATE FROM jornada SET hrs_trabajadas='$hrs_trabajadas',dias_trabajados='$dias_trabajados',pago_hora='$pago_hora',horas_extra='$horas_extra',bonos='$bonos' WHERE IDjornada='$id'";
+			$this-> sentencia = "UPDATE jornada SET hrs_trabajadas = '$hrs_trabajadas', dias_trabajados ='$dias_trabajados', pago_hora = '$pago_hora', horas_extra = '$horas_extra', bonos = '$bonos' WHERE IDjornada='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

@@ -30,7 +30,7 @@
 				<a href="?sec=jor"><li>Jornada</li></a>
 				<a href="?sec=mante"><li>Mantenimiento</li></a>
 				<a href="?sec=mate"><li>Materia Prima</li></a>
-				<a href="?sec=mob"><li>Mobiliario</li></a>
+				<a href="?sec=mo"><li>Mobiliario</li></a>
 				<a href="?sec=pago"><li>Pago</li></a>
 				<a href="?sec=ped"><li>Pedido</li></a>
 				<a href="?sec=per"><li>Permisos</li></a>
@@ -51,13 +51,13 @@
 						require_once("php/vistaVenta.php");
 						break;
 					case 'rem':
-						require_once("php/vistaReemplazo.php");
+						require_once("php/vistaReemplazos.php");
 						break;
 					case 'proy':
 						require_once("php/vistaProyecto.php");
 						break;
 					case 'prov':
-						require_once("php/vistaProveedor.php");
+						require_once("php/vistaProovedor.php");
 						break;
 					case 'per':
 						require_once("php/vistaPermiso.php");
@@ -68,8 +68,8 @@
 					case 'pago':
 						require_once("php/vistaPago.php");
 						break;
-					case 'mob':
-						require_once("php/vistaMobiliario.php");
+					case 'mo':
+						require_once("php/VistaMobiliario.php");
 						break;
 					case 'mate':
 						require_once("php/vistaMateriaprima.php");

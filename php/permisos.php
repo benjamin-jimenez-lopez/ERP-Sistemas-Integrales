@@ -9,7 +9,7 @@
 		}
 
 		public function baja($IDpermiso){
-			$this-> sentencia = "DELETE FROM permisos WHERE IDpermiso = $IDpermiso";
+			$this-> sentencia = "DELETE permisos WHERE IDpermiso = $IDpermiso";
 			$this-> ejecutarSentencia();
 		}
 

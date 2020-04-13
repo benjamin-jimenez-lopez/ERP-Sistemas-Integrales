@@ -9,7 +9,7 @@
 		}
 
 		public function baja($IDevaluacion){
-			$this-> sentencia = "DELETE FROM evaluacion WHERE IDevaluacion = '$IDevaluacion'";
+			$this-> sentencia = "DELETE FROM evaluacion WHERE IDevaluacion = $IDevaluacion";
 			$this-> ejecutarSentencia();
 		}
 

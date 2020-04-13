@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($fecha,$IDCliente,$Total,$tipo_pago,$id){
-			$this-> sentencia = "UPDATE FROM venta SET fecha='$fecha',IDCliente='$IDCliente',Total='$Total',tipo_pago='$tipo_pago' WHERE IDVenta='$id'";
+			$this-> sentencia = "UPDATE venta SET fecha='$fecha',IDCliente='$IDCliente',Total='$Total',tipo_pago='$tipo_pago' WHERE IDVenta='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

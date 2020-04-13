@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($nombre,$telefono,$direccion,$correo,$rfc,$id){
-			$this-> sentencia = "UPDATE FROM proveedor SET nombre='$nombre',telefono='$telefono',direccion='$direccion',correo='$correo',rfc='$rfc' WHERE IDproveedor='$id'";
+			$this-> sentencia = "UPDATE proveedor SET nombre='$nombre',telefono='$telefono',direccion='$direccion',correo='$correo',rfc='$rfc' WHERE IDproveedor='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){

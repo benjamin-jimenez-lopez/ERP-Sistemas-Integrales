@@ -18,7 +18,7 @@
 			return $this-> obtenerSentencia();
 		}
 		public function modificar($registro,$IDusuario,$movimiento_act, $movimiento_tabla, $id){
-			$this-> sentencia = "UPDATE FROM actividad SET registro='$registro',IDusuario='$IDusuario',movimiento_act='$movimiento_act',movimiento_tabla='$movimiento_tabla' WHERE IDactividad='$id'";
+			$this-> sentencia = "UPDATE actividad SET registro='$registro',IDusuario='$IDusuario',movimiento_act='$movimiento_act',movimiento_tabla='$movimiento_tabla' WHERE IDactividad='$id'";
 			$this-> ejecutarSentencia();
 		}
 		public function buscar($id){
